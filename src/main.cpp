@@ -5,10 +5,12 @@
 
 // Duration s, Frequenzy, Multiplier, Duty %
 uint16_t pwm_step[][4] = {
-        {5, 250,  1, 10},
-        {5, 500,  1, 25},
-        {5, 750,  1, 50},
-        {5, 1000, 1, 75}
+        {5, 250,  1, 50},
+        {5, 500,  1, 50},
+        {5, 1000,  1, 50},
+        {5, 25000,  1, 50},
+        {5, 50000,  1, 50},
+        {5, 50000, 2, 50}
 };
 
 uint16_t count_top;
@@ -30,6 +32,7 @@ int main() {
 
 
     while (1) {
+
         for (unsigned int i = 0; i < (sizeof pwm_step / 8); i++) {
 
             count_top = (uint16_t) ((16000.0 / pwm_step[i][1]) * 1000) / pwm_step[i][2];
